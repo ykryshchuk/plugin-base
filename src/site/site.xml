@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/DECORATION/1.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/DECORATION/1.0.0 http://maven.apache.org/xsd/decoration-1.0.0.xsd"
+    name="Plugin Base">
+
+    <publishDate format="yyyy-MM-dd HH:mm" position="left"/>
+    
+    <version position="right"/>
+    
+    <body>
+
+        <menu name="Overview" inherit="top" inheritAsRef="false">
+            <item name="Introduction" href="index.html"/>
+            <item name="Goals" href="plugin-info.html"/>
+            <item name="Usage" href="usage.html"/>
+            <item name="FAQ" href="faq.html"/>
+        </menu>
+
+        <menu ref="reports" inherit="bottom" inheritAsRef="false"/>
+
+    </body>
+
+</project>
