@@ -5,7 +5,7 @@
   <parent>
     <groupId>com.kryshchuk</groupId>
     <artifactId>parent</artifactId>
-    <version>1.0</version>
+    <version>1.0.1</version>
   </parent>
 
   <groupId>com.kryshchuk.maven.plugins</groupId>
@@ -34,7 +34,6 @@
       <plugins>
 
         <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-plugin-plugin</artifactId>
           <version>3.2</version>
           <configuration>
@@ -58,13 +57,11 @@
         </plugin>
 
         <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-invoker-plugin</artifactId>
           <version>1.8</version>
         </plugin>
 
         <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-site-plugin</artifactId>
           <configuration>
             <reportPlugins combine.children="append">
@@ -88,7 +85,6 @@
       <build>
         <plugins>
           <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-invoker-plugin</artifactId>
             <executions>
               <execution>
