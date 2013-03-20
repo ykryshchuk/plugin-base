@@ -10,7 +10,7 @@
 
   <groupId>com.kryshchuk.maven.plugins</groupId>
   <artifactId>plugin-base</artifactId>
-  <version>1.0.6-SNAPSHOT</version>
+  <version>1.0.6</version>
   <packaging>pom</packaging>
 
   <name>Plugins Parent</name>
