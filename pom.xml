@@ -1,6 +1,12 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
   <modelVersion>4.0.0</modelVersion>
+  
+  <parent>
+    <groupId>com.kryshchuk</groupId>
+    <artifactId>parent</artifactId>
+    <version>1.0</version>
+  </parent>
 
   <groupId>com.kryshchuk.maven.plugins</groupId>
   <artifactId>plugin-base</artifactId>
@@ -11,7 +17,7 @@
 
   <description>Parent project for maven plugins</description>
 
-  <url>http://ykryshchuk.github.com/blugin-base/</url>
+  <url>http://ykryshchuk.github.com/plugin-base/</url>
 
   <inceptionYear>2013</inceptionYear>
 
@@ -20,52 +26,6 @@
     <developerConnection>scm:git:git@github.com:ykryshchuk/plugin-base.git</developerConnection>
     <url>git@github.com:ykryshchuk/plugin-base.git</url>
   </scm>
-
-  <licenses>
-
-    <license>
-      <name>GNU GENERAL PUBLIC LICENSE</name>
-      <url>http://www.gnu.org/licenses/gpl.html</url>
-      <distribution>repo</distribution>
-    </license>
-
-  </licenses>
-
-  <organization>
-    <name>KOrga</name>
-    <url>https://kryshchuk.com/</url>
-  </organization>
-
-  <developers>
-
-    <developer>
-      <id>ykryshchuk</id>
-      <email>yuriy.kryshchuk@gmail.com</email>
-      <name>Yuriy Kryshchuk</name>
-      <timezone>2</timezone>
-      <organization>KOrga</organization>
-      <roles>
-        <role>Developer</role>
-      </roles>
-    </developer>
-
-  </developers>
-
-  <distributionManagement>
-
-    <snapshotRepository>
-      <id>sonatype-nexus-snapshots</id>
-      <name>Sonatype Nexus Snapshots</name>
-      <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
-    </snapshotRepository>
-
-    <repository>
-      <id>sonatype-nexus-staging</id>
-      <name>Nexus Release Repository</name>
-      <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-    </repository>
-
-  </distributionManagement>
 
   <build>
 
@@ -105,69 +65,14 @@
 
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-gpg-plugin</artifactId>
-          <version>1.4</version>
-        </plugin>
-
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-javadoc-plugin</artifactId>
-          <version>2.9</version>
-        </plugin>
-
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-deploy-plugin</artifactId>
-          <version>2.7</version>
-        </plugin>
-
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-source-plugin</artifactId>
-          <version>2.2.1</version>
-        </plugin>
-
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-site-plugin</artifactId>
-          <version>3.2</version>
           <configuration>
-            <reportPlugins>
+            <reportPlugins combine.children="append">
               <plugin>
                 <artifactId>maven-plugin-plugin</artifactId>
               </plugin>
-              <plugin>
-                <artifactId>maven-project-info-reports-plugin</artifactId>
-                <configuration>
-                  <dependencyDetailsEnabled>false</dependencyDetailsEnabled>
-                  <dependencyLocationsEnabled>false</dependencyLocationsEnabled>
-                  <showAvatarImages>true</showAvatarImages>
-                  <linkOnly>true</linkOnly>
-                </configuration>
-                <reports>
-                  <report>dependencies</report>
-                  <report>project-team</report>
-                  <report>license</report>
-                  <report>scm</report>
-                  <report>summary</report>
-                </reports>
-              </plugin>
             </reportPlugins>
           </configuration>
-          <executions>
-            <execution>
-              <id>attach-descriptor</id>
-              <goals>
-                <goal>attach-descriptor</goal>
-              </goals>
-            </execution>
-          </executions>
-        </plugin>
-
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-project-info-reports-plugin</artifactId>
-          <version>2.6</version>
         </plugin>
 
       </plugins>
@@ -179,7 +84,7 @@
   <profiles>
 
     <profile>
-      <id>run-its</id>
+      <id>IT</id>
       <build>
         <plugins>
           <plugin>
@@ -214,57 +119,6 @@
       </build>
     </profile>
 
-    <profile>
-      <id>GPG</id>
-      <build>
-        <plugins>
-          <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-gpg-plugin</artifactId>
-            <executions>
-              <execution>
-                <id>sign-artifacts</id>
-                <phase>verify</phase>
-                <goals>
-                  <goal>sign</goal>
-                </goals>
-              </execution>
-            </executions>
-          </plugin>
-        </plugins>
-      </build>
-    </profile>
-
-    <profile>
-      <id>FixJavadoc</id>
-      <build>
-        <plugins>
-          <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-javadoc-plugin</artifactId>
-            <executions>
-              <execution>
-                <id>fix-javadoc-since</id>
-                <phase>process-sources</phase>
-                <goals>
-                  <goal>fix</goal>
-                </goals>
-                <configuration>
-                  <force>true</force>
-                  <fixTags>since,param,return,throws</fixTags>
-                  <fixClassComment>true</fixClassComment>
-                  <fixMethodComment>true</fixMethodComment>
-                  <fixFieldComment>true</fixFieldComment>
-                  <level>package</level>
-                  <ignoreClirr>true</ignoreClirr>
-                </configuration>
-              </execution>
-            </executions>
-          </plugin>
-        </plugins>
-      </build>
-    </profile>
-
   </profiles>
 
   <dependencyManagement>
@@ -289,18 +143,6 @@
         <version>3.0.10</version>
       </dependency>
 
-      <dependency>
-        <groupId>org.mockito</groupId>
-        <artifactId>mockito-all</artifactId>
-        <version>1.9.5</version>
-      </dependency>
-
-      <dependency>
-        <groupId>org.testng</groupId>
-        <artifactId>testng</artifactId>
-        <version>6.8</version>
-      </dependency>
-
     </dependencies>
 
   </dependencyManagement>
@@ -323,24 +165,10 @@
       <artifactId>plexus-utils</artifactId>
     </dependency>
 
-    <dependency>
-      <groupId>org.mockito</groupId>
-      <artifactId>mockito-all</artifactId>
-      <scope>test</scope>
-    </dependency>
-
-    <dependency>
-      <groupId>org.testng</groupId>
-      <artifactId>testng</artifactId>
-      <scope>test</scope>
-    </dependency>
-
   </dependencies>
 
   <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <project.siteUrl>${local.repository.base}/site/maven-plugins/${project.artifactId}</project.siteUrl>
+    <project.siteUrl>${local.sites}/maven-plugins/${project.artifactId}</project.siteUrl>
   </properties>
 
 </project>
