@@ -139,6 +139,12 @@
         <artifactId>plexus-utils</artifactId>
         <version>3.0.10</version>
       </dependency>
+      
+      <dependency>
+        <groupId>com.kryshchuk.maven.plugins</groupId>
+        <artifactId>file-visitor</artifactId>
+        <version>1.0</version>
+      </dependency>
 
     </dependencies>
 
