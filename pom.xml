@@ -36,7 +36,7 @@
 
         <plugin>
           <artifactId>maven-plugin-plugin</artifactId>
-          <version>3.2</version>
+          <version>${mavenPluginVersion}</version>
           <configuration>
             <goalPrefix>${plugin.goalPrefix}</goalPrefix>
             <skipErrorNoDescriptorsFound>true</skipErrorNoDescriptorsFound>
@@ -125,13 +125,19 @@
       <dependency>
         <groupId>org.apache.maven</groupId>
         <artifactId>maven-plugin-api</artifactId>
-        <version>3.0.5</version>
+        <version>${mavenVersion}</version>
       </dependency>
 
       <dependency>
+        <groupId>org.apache.maven</groupId>
+        <artifactId>maven-core</artifactId>
+        <version>${mavenVersion}</version>
+      </dependency>
+      
+      <dependency>
         <groupId>org.apache.maven.plugin-tools</groupId>
         <artifactId>maven-plugin-annotations</artifactId>
-        <version>3.2</version>
+        <version>${mavenPluginVersion}</version>
       </dependency>
 
       <dependency>
@@ -143,7 +149,7 @@
       <dependency>
         <groupId>com.kryshchuk.maven.plugins</groupId>
         <artifactId>file-visitor</artifactId>
-        <version>1.0</version>
+        <version>1.0.1-SNAPSHOT</version>
       </dependency>
 
     </dependencies>
@@ -171,6 +177,8 @@
   </dependencies>
 
   <properties>
+    <mavenVersion>3.0.5</mavenVersion>
+    <mavenPluginVersion>3.2</mavenPluginVersion>
     <project.siteUrl>${local.sites}/maven-plugins/${project.artifactId}</project.siteUrl>
   </properties>
 
