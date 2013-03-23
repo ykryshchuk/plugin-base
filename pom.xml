@@ -188,7 +188,6 @@
     <dependency>
       <groupId>com.googlecode.slf4j-maven-plugin-log</groupId>
       <artifactId>slf4j-maven-plugin-log</artifactId>
-      <scope>runtime</scope>
     </dependency>
     
     <dependency>
