@@ -5,7 +5,7 @@
   <parent>
     <groupId>com.kryshchuk</groupId>
     <artifactId>parent</artifactId>
-    <version>1.2.3</version>
+    <version>1.2.4</version>
   </parent>
 
   <groupId>com.kryshchuk.maven.plugins</groupId>
@@ -144,7 +144,7 @@
       <dependency>
         <groupId>com.kryshchuk.maven.plugins</groupId>
         <artifactId>file-visitor</artifactId>
-        <version>1.0.6</version>
+        <version>1.0.7</version>
       </dependency>
 
       <dependency>
