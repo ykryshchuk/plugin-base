@@ -144,7 +144,7 @@
       <dependency>
         <groupId>com.kryshchuk.maven.plugins</groupId>
         <artifactId>file-visitor</artifactId>
-        <version>1.0.7</version>
+        <version>1.0.8</version>
       </dependency>
 
       <dependency>
