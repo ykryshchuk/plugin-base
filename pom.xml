@@ -10,7 +10,7 @@
 
   <groupId>com.kryshchuk.maven.plugins</groupId>
   <artifactId>plugin-base</artifactId>
-  <version>1.2.5</version>
+  <version>1.2.6-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <name>Plugins Parent</name>
@@ -25,7 +25,7 @@
     <connection>scm:git:git://github.com/ykryshchuk/plugin-base.git</connection>
     <developerConnection>scm:git:git@github.com:ykryshchuk/plugin-base.git</developerConnection>
     <url>git@github.com:ykryshchuk/plugin-base.git</url>
-    <tag>plugin-base-1.2.5</tag>
+    <tag>HEAD</tag>
   </scm>
 
   <build>
